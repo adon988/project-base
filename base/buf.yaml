@@ -1,4 +1,4 @@
 version: v1
-name: buf.build/myuser/myrepo
+name: buf.build/adon988/project-base
 deps:
   - buf.build/googleapis/googleapis
