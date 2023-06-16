@@ -17,4 +17,7 @@ plugins:
     opt: paths=source_relative,require_unimplemented_servers=false
   - plugin: grpc-gateway
     out: ./generate
-    opt: paths=source_relative
+    opt:
+      - paths=source_relative
+      - warn_on_unbound_methods=true
+      - allow_patch_feature=true

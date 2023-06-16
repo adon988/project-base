@@ -7,7 +7,12 @@ option go_package = "github.com/adon988/project-base/base";
 // The greeting service definition
 service GreeterService {
   // Sends a greeting
-  rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {}
+  rpc SayHello(HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      post: "/v1/example/echo"
+      body: "*"
+    };
+  }
 }
 
 // The request message containing the user's name
