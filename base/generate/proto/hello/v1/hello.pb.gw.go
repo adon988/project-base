@@ -2,11 +2,11 @@
 // source: proto/hello/v1/hello.proto
 
 /*
-Package base is a reverse proxy.
+Package hellov1 is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package base
+package hellov1
 
 import (
 	"context"
