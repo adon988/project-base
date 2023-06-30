@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package proto.tool.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "github.com/adon988/project-base/base";
+
+// The greeting service definition
+service ToolService {
+  // Sends a greeting
+  rpc Timer(TimerRequest) returns (TimerResponse) {
+    option (google.api.http) = {
+      post: "/v1/tool/timer"
+      body: "*"
+    };
+  }
+}
+
+// The request message containing the user's name
+message TimerRequest {
+  string location = 1;
+}
+
+// The response message containing the greetings
+message TimerResponse {
+  string message = 1;
+}
