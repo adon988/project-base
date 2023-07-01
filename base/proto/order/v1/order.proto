@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package order.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/adon988/project-base/base";
+
+// The greeting service definition
+service OrderService {
+  // Sends a greeting
+  rpc Get(OrderServiceGetRequest) returns (OrderServiceGetResponse) {
+    option (google.api.http) = {get: "/v1/order/{id}/{order_number}"};
+  }
+}
+
+message OrderInfo {
+  string order_number = 1;
+  string product_name = 2;
+  string status = 3;
+  // Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
+  // Whole units part of the amount
+  //https://learn.microsoft.com/zh-tw/dotnet/architecture/grpc-for-wcf-developers/protobuf-data-types#decimals
+  int64 units = 4;
+  // Nano units of the amount (10^-9)
+  // Must be same sign as units
+  sfixed32 nanos = 5;
+  //datetime
+  //https://learn.microsoft.com/zh-tw/dotnet/architecture/grpc-for-wcf-developers/protobuf-data-types#dates-and-times
+  google.protobuf.Timestamp created_at = 6;
+}
+
+// The request message containing the user's name
+message OrderServiceGetRequest {
+  string id = 1;
+  string order_number = 2;
+}
+
+// The response message containing the greetings
+message OrderServiceGetResponse {
+  string message = 1;
+  OrderInfo data = 2;
+  int32 status = 3;
+}
