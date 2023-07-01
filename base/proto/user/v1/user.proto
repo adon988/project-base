@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package user.v1;
+
+import "google/api/annotations.proto";
+import "user/v1/user_info.proto";
+
+option go_package = "github.com/adon988/project-base/base";
+
+// The greeting service definition
+service UserService {
+  // Sends a greeting
+  rpc Info(InfoRequest) returns (InfoResponse) {
+    option (google.api.http) = {
+      post: "/v1/user/info"
+      body: "*"
+    };
+  }
+}
+
+// The request message containing the user's id
+message InfoRequest {
+  string id = 1;
+}
+
+// // The response message containing user info
+// message UserInfo {
+//   string id = 1;
+//   string name = 2;
+//   int32 age = 3;
+//   string email = 4;
+// }
+
+message InfoResponse {
+  string message = 1;
+  UserInfo data = 2;
+  int32 status = 3;
+}

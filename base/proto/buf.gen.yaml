@@ -5,18 +5,18 @@ managed:
   go_package_prefix:
     default: github.com/adon988/project-base/generate
     except:
-      - buf.build/googleapis/googleapis
       - buf.build/grpc-ecosystem/grpc-gateway
+      - buf.build/googleapis/googleapis
 
 plugins:
   - plugin: go
-    out: ./generate
+    out: ../generate
     opt: paths=source_relative
   - plugin: go-grpc
-    out: ./generate
+    out: ../generate
     opt: paths=source_relative,require_unimplemented_servers=false
   - plugin: grpc-gateway
-    out: ./generate
+    out: ../generate
     opt:
       - paths=source_relative
       - warn_on_unbound_methods=true

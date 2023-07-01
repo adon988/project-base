@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             (unknown)
-// source: proto/tool/v1/tool.proto
+// source: tool/v1/tool.proto
 
 package toolv1
 
@@ -36,7 +36,7 @@ func NewToolServiceClient(cc grpc.ClientConnInterface) ToolServiceClient {
 
 func (c *toolServiceClient) Timer(ctx context.Context, in *TimerRequest, opts ...grpc.CallOption) (*TimerResponse, error) {
 	out := new(TimerResponse)
-	err := c.cc.Invoke(ctx, "/proto.tool.v1.ToolService/Timer", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/tool.v1.ToolService/Timer", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func _ToolService_Timer_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.tool.v1.ToolService/Timer",
+		FullMethod: "/tool.v1.ToolService/Timer",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ToolServiceServer).Timer(ctx, req.(*TimerRequest))
@@ -92,7 +92,7 @@ func _ToolService_Timer_Handler(srv interface{}, ctx context.Context, dec func(i
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ToolService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.tool.v1.ToolService",
+	ServiceName: "tool.v1.ToolService",
 	HandlerType: (*ToolServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -101,5 +101,5 @@ var ToolService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/tool/v1/tool.proto",
+	Metadata: "tool/v1/tool.proto",
 }

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package user.v1;
+
+option go_package = "github.com/adon988/project-base/base";
+
+// The request message containing the user's id
+message UserInfo {
+  string id = 1;
+  string name = 2;
+  int32 age = 3;
+  string email = 4;
+}
