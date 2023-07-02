@@ -5,9 +5,16 @@ package user.v1;
 option go_package = "github.com/adon988/project-base/base";
 
 // The request message containing the user's id
+enum SEXUAL {
+  SEXUAL_UNSPECIFIED = 0;
+  SEXUAL_MALE = 1;
+  SEXUAL_FEMALE = 2;
+}
 message UserInfo {
   string id = 1;
   string name = 2;
   int32 age = 3;
   string email = 4;
+  SEXUAL sexual = 5;
+  map<string, string> tasks = 6;
 }

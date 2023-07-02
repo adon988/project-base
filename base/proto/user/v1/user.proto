@@ -23,14 +23,6 @@ message InfoRequest {
   string id = 1;
 }
 
-// // The response message containing user info
-// message UserInfo {
-//   string id = 1;
-//   string name = 2;
-//   int32 age = 3;
-//   string email = 4;
-// }
-
 message InfoResponse {
   string message = 1;
   UserInfo data = 2;
