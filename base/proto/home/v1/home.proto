@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package home.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "github.com/adon988/project-base/base";
+
+// The greeting service definition
+service HomeService {
+  // Sends a greeting
+  rpc GetHome(GetHomeRequest) returns (GetHomeResponse) {
+    option (google.api.http) = {get: "/"};
+  }
+}
+
+message GetHomeRequest {
+  optional string id = 1;
+}
+
+message GetHomeResponse {
+  string message = 1;
+}
